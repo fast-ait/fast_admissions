@@ -1,0 +1,21 @@
+# Lives at ~/fast-admissions/deploy/ on the server. Start: PORT=8082 docker compose up -d
+# Explicit project name: both sites keep compose files in a folder called deploy/,
+# and without it Docker treats them as one project and replaces one with the other.
+name: fast-admissions
+services:
+  web:
+    image: nginx:1.27-alpine
+    container_name: fast-admissions-web
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8082}:80"
+    volumes:
+      - ..:/srv/fast-admissions:ro
+      # Mount the folder, not the file: rsync replaces nginx.conf by rename, which a
+      # single-file bind mount would never see. nginx only loads conf.d/*.conf.
+      - .:/etc/nginx/conf.d:ro
+    healthcheck:
+      # 127.0.0.1, not localhost: localhost resolves to ::1 and nginx listens on IPv4 only.
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/"]
+      interval: 30s
+      timeout: 3s
