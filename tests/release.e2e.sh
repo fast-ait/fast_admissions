@@ -46,7 +46,7 @@ good="$(current)"
 check publish_uses_running_port "0 yes" "$status $([[ -n "$good" ]] && echo yes)"
 
 # 2. failed publishes roll back to the Release that was live, and never prune it.
-broken_site="$(variant 'rm site/assets/fast-logo.png && sed -i "/fast-logo.png/d" site/index.html' 'break the site')"; worktrees+=("$broken_site")
+broken_site="$(variant 'rm site/assets/ait-logo.png && sed -i "/ait-logo.png/d" site/index.html' 'break the site')"; worktrees+=("$broken_site")
 release "$broken_site" publish || true
 release "$broken_site" publish || true
 check failed_publish_restores_live "$good yes" \

@@ -39,8 +39,12 @@ a:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-rad
 /* Masthead */
 .masthead { border-bottom: 1px solid var(--line); }
 .masthead-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 0.875rem; }
-.brand img { width: auto; height: 44px; }
-.brand-ait img { height: 40px; }
+.brand { display: flex; align-items: center; gap: 0.85rem; color: var(--navy); text-decoration: none; }
+.brand img { width: 52px; height: 52px; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-text strong { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.03em; }
+.brand-text small { margin-top: 0.2rem; font-size: 0.8rem; font-weight: 500; color: var(--text-soft); }
+.brand:hover { color: var(--navy); }
 
 /* Hero: the five steps are the page's table of contents. */
 .hero { background: var(--navy); color: #fff; }
@@ -181,6 +185,7 @@ a:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-rad
   .scholarship-groups { grid-template-columns: 1fr; gap: 2rem; }
   .contact-inner { grid-template-columns: 1fr; }
   .contact-row { grid-template-columns: 1fr; gap: 0.35rem; }
-  .brand img { height: 36px; }
-  .brand-ait img { height: 34px; }
+  .brand img { width: 44px; height: 44px; }
+  .brand-text strong { font-size: 1.35rem; }
+  .brand-text small { font-size: 0.72rem; }
 }

@@ -33,7 +33,7 @@ expect() {
 expect index_no_cache / 200 text/html no-cache
 if curl -s --max-time 10 "$base/" | grep -q 'id="scholarships"'; then pass page_content; else fail page_content "no scholarships section"; fi
 expect styles_short_cache /styles.css 200 text/css max-age=3600
-expect logo_served /assets/fast-logo.png 200 image/png
+expect logo_served /assets/ait-logo.png 200 image/png
 expect unknown_path_shows_page /nope 200 text/html
 # A redirect from nginx itself would drop the /admissions/ prefix the proxy stripped.
 expect no_internal_redirect /assets 200 text/html
