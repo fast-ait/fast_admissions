@@ -1,4 +1,7 @@
 # Lives at ~/fast-admissions/deploy/ on the server. Start: PORT=8082 docker compose up -d
+# Explicit project name: both sites keep compose files in a folder called deploy/,
+# and without it Docker treats them as one project and replaces one with the other.
+name: fast-admissions
 services:
   web:
     image: nginx:1.27-alpine
