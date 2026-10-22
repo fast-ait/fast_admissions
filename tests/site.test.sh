@@ -51,6 +51,32 @@ applies="$(grep -c 'href="https://ait.ac.th/apply-online/"' "$PAGE")"
 
 [[ "$scholarships" == 10 ]] && pass ten_scholarships || fail ten_scholarships "got $scholarships"
 
+# Each scholarship sits in the group for the degree level(s) it funds.
+group_of() {  # prints the data-level of the group containing the link text $1
+  awk -v name="$1" '
+    /data-level="/ { match($0, /data-level="[a-z]+"/); level = substr($0, RSTART + 12, RLENGTH - 13) }
+    index($0, ">" name "</a>") { print level; exit }' "$PAGE"
+}
+declare -A level_of=(
+  ["Loom Nam Khong Pijai (GMS Scholarships) for Master’s Programs"]=masters
+  ["Asian Development Bank–Japan Scholarship Program (ADB-JSP)"]=masters
+  ["Mitani Trading (Thailand) Master's Scholarship with Job Offer"]=masters
+  ["AIS Scholarship"]=masters
+  ["Chinese Government Scholarships"]=masters
+  ["RTG Fellowships (Ph.D.) to Support the Asian Innovation Hub"]=doctoral
+  ["Japanese Government Scholarships"]=doctoral
+  ["His Majesty the King's Scholarships"]=both
+  ["RTG Fellowships"]=both
+  ["AIT Scholarships"]=both
+)
+misplaced=()
+for name in "${!level_of[@]}"; do
+  got="$(group_of "$name")"
+  [[ "$got" == "${level_of[$name]}" ]] || misplaced+=("$name: ${got:-none}, want ${level_of[$name]}")
+done
+if [[ ${#misplaced[@]} -eq 0 ]]; then pass scholarships_grouped_by_level; else
+  fail scholarships_grouped_by_level "$(printf '%s; ' "${misplaced[@]}")"; fi
+
 # Behind the proxy the page lives at /admissions/, so root-absolute URLs break.
 absolute="$(grep -rnoE '(src|href)="/[^/]' "$SITE" || true)"
 [[ -z "$absolute" ]] && pass site_uses_relative_urls || fail site_uses_relative_urls "$absolute"
