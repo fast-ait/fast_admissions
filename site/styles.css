@@ -99,6 +99,13 @@ a:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-rad
   text-decoration: none;
 }
 .button:hover { background: var(--navy); color: #fff; }
+.button-solid { background: var(--navy); color: #fff; }
+.button-solid:hover { background: var(--blue); border-color: var(--blue); }
+.button-light { background: #fff; border-color: #fff; color: var(--navy); }
+.button-light:hover { background: #d5e4f6; border-color: #d5e4f6; color: var(--navy); }
+.button-light:focus-visible { outline-color: #9fcaf5; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 0; }
+.hero-cta { margin: 2rem 0 0; }
 
 /* Programs: each program keeps its color from the One-Stop site. */
 .programs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }

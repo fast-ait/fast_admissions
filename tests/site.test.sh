@@ -26,6 +26,7 @@ required=(
   https://ait.ac.th/program/remote-sensing-and-geographic-information-systems-rs-gis/
   https://ait.ac.th/tuition-and-fees/
   https://ait.ac.th/eligibility/
+  https://ait.ac.th/apply-online/
   https://ait.ac.th/financial/royal-thai-government-scholarships/
   https://ait.ac.th/financial/rtg-fellowships-ph-d-to-support-the-asian-innovation-hub/
   https://ait.ac.th/financial/rtg-fellowships/
@@ -43,6 +44,9 @@ for url in "${required[@]}"; do grep -qF "href=\"$url\"" "$PAGE" || missing+=("$
 [[ ${#missing[@]} -eq 0 ]] && pass site_has_required_links || fail site_has_required_links "${missing[*]}"
 
 scholarships="$(grep -c 'class="scholarship"' "$PAGE")"
+applies="$(grep -c 'href="https://ait.ac.th/apply-online/"' "$PAGE")"
+[[ "$applies" == 2 ]] && pass apply_now_in_hero_and_section || fail apply_now_in_hero_and_section "got $applies"
+
 [[ "$scholarships" == 9 ]] && pass nine_scholarships || fail nine_scholarships "got $scholarships"
 
 # Behind the proxy the page lives at /admissions/, so root-absolute URLs break.
