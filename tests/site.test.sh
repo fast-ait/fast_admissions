@@ -34,6 +34,7 @@ required=(
   https://ait.ac.th/financial/mitani-trading-thailand-co-ltd-masters-scholarship-with-job-offer/
   https://ait.ac.th/financial/ais-scholarship/
   https://ait.ac.th/financial/chinese-government-scholarships/
+  https://ait.ac.th/financial/japanese-government-scholarships/
   https://ait.ac.th/financial/ait-scholarships/
   https://ait.ac.th/financial-aid/
   mailto:fast_admissions@ait.ac.th
@@ -48,7 +49,7 @@ scholarships="$(grep -c 'class="scholarship"' "$PAGE")"
 applies="$(grep -c 'href="https://ait.ac.th/apply-online/"' "$PAGE")"
 [[ "$applies" == 2 ]] && pass apply_now_in_hero_and_section || fail apply_now_in_hero_and_section "got $applies"
 
-[[ "$scholarships" == 9 ]] && pass nine_scholarships || fail nine_scholarships "got $scholarships"
+[[ "$scholarships" == 10 ]] && pass ten_scholarships || fail ten_scholarships "got $scholarships"
 
 # Behind the proxy the page lives at /admissions/, so root-absolute URLs break.
 absolute="$(grep -rnoE '(src|href)="/[^/]' "$SITE" || true)"
