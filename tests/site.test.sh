@@ -38,6 +38,8 @@ required=(
   https://ait.ac.th/financial/ait-scholarships/
   https://ait.ac.th/financial-aid/
   mailto:fast_admissions@ait.ac.th
+  tel:+6625246601
+  tel:+6625245733
   https://www.facebook.com/fast.ait
   https://fast.ait.ac.th/info/
 )
