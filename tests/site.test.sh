@@ -37,6 +37,7 @@ required=(
   https://ait.ac.th/financial/ait-scholarships/
   https://ait.ac.th/financial-aid/
   mailto:fast_admissions@ait.ac.th
+  https://www.facebook.com/fast.ait
   https://fast.ait.ac.th/info/
 )
 missing=()

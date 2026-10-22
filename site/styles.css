@@ -138,6 +138,7 @@ a:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-rad
 .block-contact { background: var(--mist); border-bottom: 0; }
 .email { margin: 0; font: 700 clamp(1.35rem, 4vw, 2rem)/1.2 var(--sans); letter-spacing: -0.02em; overflow-wrap: anywhere; }
 .email a { color: var(--navy); }
+.social { margin: 1rem 0 0; font-weight: 600; }
 
 /* Footer */
 .footer { background: var(--navy-2); color: #c9dbf0; font-size: 0.925rem; }
