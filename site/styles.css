@@ -9,8 +9,7 @@
   --text-soft: #55677e;
   --paper: #ffffff;
 
-  --serif: "IBM Plex Serif", Georgia, serif;
-  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --wrap: 68rem;
   --gutter: clamp(1rem, 4vw, 2.5rem);
@@ -25,7 +24,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--text);
-  font: 400 1.0625rem/1.6 var(--sans);
+  font: 400 1.0625rem/1.65 var(--sans);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -54,8 +53,8 @@ a:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-rad
 }
 .hero h1 {
   margin: 0 0 1.25rem;
-  font: 600 clamp(2.75rem, 7vw, 4.75rem)/1.02 var(--serif);
-  letter-spacing: -0.02em;
+  font: 800 clamp(2.75rem, 7.5vw, 5rem)/1 var(--sans);
+  letter-spacing: -0.035em;
 }
 .lede { margin: 0; max-width: 34rem; font-size: 1.125rem; color: #d5e4f6; }
 
@@ -72,7 +71,7 @@ a:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-rad
 }
 .path a:hover { color: #9fcaf5; }
 .path a:focus-visible { outline-color: #9fcaf5; }
-.path-n { font: 500 0.95rem var(--serif); color: #7fb3ea; min-width: 1.25rem; }
+.path-n { font: 700 0.95rem var(--sans); color: #7fb3ea; min-width: 1.25rem; font-variant-numeric: tabular-nums; }
 
 /* Sections */
 .block { padding-block: clamp(3rem, 7vw, 5rem); border-bottom: 1px solid var(--line); }
@@ -81,7 +80,8 @@ a:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-rad
   align-items: baseline;
   gap: 0.9rem;
   margin: 0 0 0.75rem;
-  font: 600 clamp(1.75rem, 3.5vw, 2.25rem)/1.15 var(--serif);
+  font: 700 clamp(1.75rem, 3.5vw, 2.35rem)/1.15 var(--sans);
+  letter-spacing: -0.025em;
   color: var(--navy);
 }
 .block-n { font-size: 0.6em; color: var(--sky); }
@@ -110,7 +110,7 @@ a:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-rad
   color: var(--text);
   text-decoration: none;
 }
-.program-code { display: block; font: 600 1.5rem var(--serif); color: var(--program); }
+.program-code { display: block; font: 800 1.5rem var(--sans); letter-spacing: -0.02em; color: var(--program); }
 .program-name { display: block; margin: 0.35rem 0 0.5rem; font-weight: 600; color: var(--navy); line-height: 1.35; }
 .program-blurb { display: block; color: var(--text-soft); font-size: 0.975rem; }
 .program a:hover .program-name { text-decoration: underline; text-underline-offset: 0.2em; }
@@ -129,7 +129,7 @@ a:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-rad
 
 /* Contact */
 .block-contact { background: var(--mist); border-bottom: 0; }
-.email { margin: 0; font: 600 clamp(1.35rem, 4vw, 2rem)/1.2 var(--serif); overflow-wrap: anywhere; }
+.email { margin: 0; font: 700 clamp(1.35rem, 4vw, 2rem)/1.2 var(--sans); letter-spacing: -0.02em; overflow-wrap: anywhere; }
 .email a { color: var(--navy); }
 
 /* Footer */
