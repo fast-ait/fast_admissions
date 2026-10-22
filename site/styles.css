@@ -1,0 +1,148 @@
+:root {
+  --navy: #0a2b52;
+  --navy-2: #0f3a6b;
+  --blue: #1768c2;
+  --sky: #2e86e0;
+  --mist: #f3f8fe;
+  --line: #d7e6f7;
+  --text: #223349;
+  --text-soft: #55677e;
+  --paper: #ffffff;
+
+  --serif: "IBM Plex Serif", Georgia, serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --wrap: 68rem;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text);
+  font: 400 1.0625rem/1.6 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--blue); text-underline-offset: 0.2em; }
+a:hover { color: var(--navy); }
+a:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* Masthead */
+.masthead { border-bottom: 1px solid var(--line); }
+.masthead-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 0.875rem; }
+.brand img { width: auto; height: 44px; }
+.brand-ait img { height: 40px; }
+
+/* Hero: the five steps are the page's table of contents. */
+.hero { background: var(--navy); color: #fff; }
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: end;
+  padding-block: clamp(3rem, 9vw, 6.5rem);
+}
+.hero h1 {
+  margin: 0 0 1.25rem;
+  font: 600 clamp(2.75rem, 7vw, 4.75rem)/1.02 var(--serif);
+  letter-spacing: -0.02em;
+}
+.lede { margin: 0; max-width: 34rem; font-size: 1.125rem; color: #d5e4f6; }
+
+.path { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(255, 255, 255, 0.22); }
+.path li { border-bottom: 1px solid rgba(255, 255, 255, 0.22); }
+.path a {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.path a:hover { color: #9fcaf5; }
+.path a:focus-visible { outline-color: #9fcaf5; }
+.path-n { font: 500 0.95rem var(--serif); color: #7fb3ea; min-width: 1.25rem; }
+
+/* Sections */
+.block { padding-block: clamp(3rem, 7vw, 5rem); border-bottom: 1px solid var(--line); }
+.block h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin: 0 0 0.75rem;
+  font: 600 clamp(1.75rem, 3.5vw, 2.25rem)/1.15 var(--serif);
+  color: var(--navy);
+}
+.block-n { font-size: 0.6em; color: var(--sky); }
+.intro { margin: 0 0 2rem; max-width: 42rem; color: var(--text-soft); }
+.more { margin: 2rem 0 0; }
+.note { margin: 1.5rem 0 0; max-width: 42rem; color: var(--text-soft); font-size: 0.975rem; }
+
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  border: 1px solid var(--navy);
+  border-radius: 999px;
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: none;
+}
+.button:hover { background: var(--navy); color: #fff; }
+
+/* Programs: each program keeps its color from the One-Stop site. */
+.programs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.program a {
+  display: block;
+  height: 100%;
+  padding: 1.25rem 0 0;
+  border-top: 3px solid var(--program);
+  color: var(--text);
+  text-decoration: none;
+}
+.program-code { display: block; font: 600 1.5rem var(--serif); color: var(--program); }
+.program-name { display: block; margin: 0.35rem 0 0.5rem; font-weight: 600; color: var(--navy); line-height: 1.35; }
+.program-blurb { display: block; color: var(--text-soft); font-size: 0.975rem; }
+.program a:hover .program-name { text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* Scholarships */
+.scholarships {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 2;
+  column-gap: 3rem;
+}
+.scholarship { break-inside: avoid; border-top: 1px solid var(--line); }
+.scholarship a { display: block; padding: 0.8rem 0; color: var(--navy); font-weight: 500; text-decoration: none; }
+.scholarship a:hover { color: var(--blue); text-decoration: underline; }
+
+/* Contact */
+.block-contact { background: var(--mist); border-bottom: 0; }
+.email { margin: 0; font: 600 clamp(1.35rem, 4vw, 2rem)/1.2 var(--serif); overflow-wrap: anywhere; }
+.email a { color: var(--navy); }
+
+/* Footer */
+.footer { background: var(--navy-2); color: #c9dbf0; font-size: 0.925rem; }
+.footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; padding-block: 1.5rem; }
+.footer p { margin: 0; }
+.footer a { color: #fff; }
+.footer a + a { margin-left: 1.25rem; }
+
+@media (max-width: 720px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .programs { grid-template-columns: 1fr; }
+  .scholarships { columns: 1; }
+  .brand img { height: 36px; }
+  .brand-ait img { height: 34px; }
+}
